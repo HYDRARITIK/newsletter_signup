@@ -7,6 +7,8 @@ const mailchimp=require('mailchimp')
 const https=require("https")
 app.use(bodyParser.urlencoded({extended:true}));
 
+const {api_key,listId}=require("./secrets")
+
 
 //to send static file
 //for files we have to specify path relative to static folder
@@ -18,12 +20,6 @@ app.get("/",(req,res)=>{
 
 })
 
-const api_key="c8a37c9e3ff79c3490436e19de9b9588-us9"
-//Setting up MailChimp
-// mailchimp.setConfig({
-//     apiKey: api_key,
-//     server: "us9"
-//     });
 
 
 
@@ -55,18 +51,6 @@ const data_obj={
 const data_string=JSON.stringify(data_obj);
 
 
-
-//Add a contact to an audience
-
-
-const listId = "4f73b32189";
-
-// const subscribingUser = {
-//   firstName: fname,
-//   lastName: lname,
-//   email: email,
-//   password:password
-// };
 
 
 
@@ -144,10 +128,6 @@ app.listen(process.env.PORT || 5000,()=>{
     //browser is sending request to our server in response server
     //have to send something
 });
-
-
-//apikey
-//c8a37c9e3ff79c3490436e19de9b9588-us9
 
 
 
